@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragments/header :: header('Your Journey', 'Your Journey')}"></head>
+
+<body class="d-flex flex-column min-vh-100">
+<div class="flex-grow-1">
+    <div class="container-fluid px-0">
+        <div id="map" style="height: 400px;"></div>
+    </div>
+
+    <div class="container py-4">
+        <!-- Summary Card -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <h3 class="text-primary mb-1" th:text="${tracks.size()}">0</h3>
+                        <p class="text-muted mb-0">Cities Visited</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="text-success mb-1" th:text="${totalTracks}">0</h3>
+                        <p class="text-muted mb-0">Total Tracks</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="text-info mb-1" th:text="${uniqueArtists}">0</h3>
+                        <p class="text-muted mb-0">Unique Artists</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cities and Tracks -->
+        <div th:each="entry : ${tracks}" class="city-section mb-5">
+            <div class="d-flex align-items-center mb-3">
+                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                    <i class="fas fa-city"></i>
+                </div>
+                <div>
+                    <h2 class="h3 mb-0 text-dark" th:text="${entry.key.name}">City</h2>
+                    <small class="text-muted" th:text="${entry.value.size() + ' tracks discovered'}">0 tracks discovered</small>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div th:each="track : ${entry.value}" class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="card track-card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-grow-1">
+                                    <h6 class="card-title text-dark mb-1" th:text="${track.name}">Track Name</h6>
+                                    <p class="card-text text-muted small mb-2">
+                                        <span th:each="artist, iter : ${track.artists}">
+                                            <span th:text="${artist.value}">Artist</span>
+                                            <span th:unless="${iter.last}">, </span>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="ms-3">
+                                    <a th:href="${track.url}" target="_blank" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- No Tracks Message -->
+        <div th:if="${tracks.empty}" class="text-center py-5">
+            <div class="bg-light rounded-3 p-5">
+                <i class="fas fa-music fa-3x text-muted mb-3"></i>
+                <h3 class="text-muted">No tracks found</h3>
+                <p class="text-muted">Try a different journey to discover more music!</p>
+            </div>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        const lat1 = [[${lat1}]];
+        const lng1 = [[${lng1}]];
+        const lat2 = [[${lat2}]];
+        const lng2 = [[${lng2}]];
+        /*<![CDATA[*/
+        const tracksData = /*[[${tracksJson}]]*/ 'default';
+        /*]]>*/
+    </script>
+
+    <script th:src="@{/js/app.js}"></script>
+    <script th:src="@{/js/results.js}"></script>
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+<!-- Add Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    .city-section {
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .track-card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        border-left: 4px solid #007bff;
+    }
+
+    .track-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    }
+
+    #map {
+        border-bottom: 3px solid #007bff;
+    }
+
+    .bg-primary {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+    }
+</style>
+</body>
+</html>

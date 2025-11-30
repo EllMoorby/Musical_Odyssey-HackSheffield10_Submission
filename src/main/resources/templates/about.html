@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragments/header :: header('About', 'About this project')}"></head>
+<body class="d-flex flex-column min-vh-100">
+<div class="flex-grow-1">
+
+    <!-- Cards Section -->
+    <div class="container py-4">
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                                <i class="fas fa-map-marked-alt text-primary fs-2"></i>
+                            </div>
+                            <h2 class="card-title h4 mb-0">Project</h2>
+                        </div>
+                        <p class="card-text text-muted fs-5 mb-0">
+                            A program built to randomly sample popular songs from cities between two points on a journey
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-success bg-opacity-10 rounded-circle p-3 me-3">
+                                <i class="fas fa-code text-success fs-2"></i>
+                            </div>
+                            <h2 class="card-title h4 mb-0">Built Using</h2>
+                        </div>
+                        <div class="card-text">
+                            <span class="badge bg-primary me-2 mb-2 p-2">Spring Boot</span>
+                            <span class="badge bg-primary me-2 mb-2 p-2">Thymeleaf</span>
+                            <span class="badge bg-primary me-2 mb-2 p-2">Bootstrap</span>
+                            <span class="badge bg-primary me-2 mb-2 p-2">Leaflet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-info bg-opacity-10 rounded-circle p-3 me-3">
+                                <i class="fas fa-plug text-info fs-2"></i>
+                            </div>
+                            <h2 class="card-title h4 mb-0">APIs Used</h2>
+                        </div>
+                        <div class="card-text">
+                            <span class="badge bg-success me-2 mb-2 p-2">OpenStreetMap</span>
+                            <span class="badge bg-success me-2 mb-2 p-2">LastFM</span>
+                            <span class="badge bg-success me-2 mb-2 p-2">Spotify</span>
+                            <span class="badge bg-success me-2 mb-2 p-2">Nominatim</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-10">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-warning bg-opacity-10 rounded-circle p-3 me-3">
+                                <i class="fas fa-users text-warning fs-2"></i>
+                            </div>
+                            <h2 class="card-title h4 mb-0">Built By</h2>
+                        </div>
+                        <div class="card-text">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <p class="text-muted fs-5 mb-3">
+                                        Elliott Moorby and Noah Cooling
+                                    </p>
+                                    <div class="d-flex flex-wrap gap-3">
+                                            <span class="badge bg-secondary p-2">
+                                                <i class="fas fa-calendar me-1"></i>
+                                                29/11/2025 - 30/11/2025
+                                            </span>
+                                        <span class="badge bg-dark p-2">
+                                                <i class="fas fa-trophy me-1"></i>
+                                                HackSheffield 10
+                                            </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <div class="mt-3 mt-md-0">
+                                        <a href="https://github.com/EllMoorby" class="btn btn-outline-dark btn me-2">
+                                            <i class="fab fa-github me-1"></i> Elliott
+                                        </a>
+                                        <a href="https://github.com/Domestic-Mouse" class="btn btn-outline-dark btn">
+                                            <i class="fab fa-github me-1"></i> Noah
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+<!-- Add Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    .card {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-2px);
+    }
+
+    .bg-opacity-10 {
+
+    }
+</style>
+</body>
+</html>

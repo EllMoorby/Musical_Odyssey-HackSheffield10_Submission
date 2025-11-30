@@ -1,0 +1,68 @@
+#map {
+    height: 600px;
+    width: 100%;
+    border: 2px solid #333;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+
+.controls {
+    margin: 20px 0;
+}
+
+footer {
+    clear: both;
+    position: relative;
+    background-color: lightgray;
+
+    .footer-logo{
+
+    }
+}
+
+.spotifyPopup{
+    margin: -2px;
+    width: 120px;
+}
+
+.leaflet-popup-content {
+    margin: -2px;
+}
+
+.spotifyCard{
+    .trackName{
+
+    }
+    .artistName{
+        font-size: 12px;
+    }
+}
+
+.map-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.topbar-logo{
+    margin-top: -100px;
+    margin-bottom: -100px;
+
+}
+
+.main-logo{
+    margin-bottom: -10px;
+}
+
+.footer{
+    .logo
+}
+

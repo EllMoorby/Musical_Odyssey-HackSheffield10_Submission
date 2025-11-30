@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragments/header :: header('Music Odyssey', '')}"></head>
+<body class="d-flex flex-column min-vh-100">
+<div class="flex-grow-1">
+    <div class="px-4 py-0 my-3 text-center main-logo">
+        <img class="d-block mx-auto" src="assets/logotransparent.png" alt="" width="300" height="100%">
+        <h1 class="display-5 fw-bold text-body-emphasis">Musical Odyssey</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Straight up emulsifying music</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a class="btn btn-primary btn-lg px-4 gap-3" href="/map" role="button">Get Started</a>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

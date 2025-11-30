@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header('Choose your Adventure', 'Your Musical Journey Map')}"></head>
+<body class="d-flex flex-column min-vh-100">
+<div class="flex-grow-1">
+    <div class="container">
+        <div id="map">
+            <div class="map-controls text-center w-100">
+                <div class="row ">
+                    <div class="col d-flex gap-2 align-items-left">
+                        <button id="clear-button" type="button" class="btn btn-outline-secondary">Clear</button>
+                        <form id="mapForm" th:action="@{/results}" method="post">
+                            <input type="hidden" name="lat1" id="lat1">
+                            <input type="hidden" name="lng1" id="lng1">
+                            <input type="hidden" name="lat2" id="lat2">
+                            <input type="hidden" name="lng2" id="lng2">
+                            <button id="submit-button" type="button" class="btn btn-primary" disabled>Submit</button>
+                        </form>
+                    </div>
+                    <div class="col">
+                        Column
+                    </div>
+                    <div class="col">
+                        Column
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script th:src="@{/js/app.js}"></script>
+    <script th:src="@{/js/map.js}"></script>
+</div>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

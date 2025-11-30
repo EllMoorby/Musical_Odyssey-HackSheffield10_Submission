@@ -1,0 +1,10 @@
+<div th:fragment="trackDisplay(track)">
+    <div class="card">
+        <div class="card-body">
+                <div><img th:src="${track.album.coverImage}" class="card-img" th:alt="${track.album.name} + 'Album Name'"></div>
+            <span th:text="${track.name}">Track Name</span><br>
+            <span th:each="artist : ${track.artists}"
+                  th:text="${artist.value}">Artist Name</span>
+        </div>
+    </div>
+</div>

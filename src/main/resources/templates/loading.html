@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generating Your Musical Journey</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .loading-container {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .loading-content {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .loading-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: #4cc9f0;
+            animation: pulse 2s infinite;
+        }
+
+        .loading-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #4cc9f0, #4361ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .loading-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #b8c1ec;
+            opacity: 0.9;
+        }
+
+        .progress-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            height: 20px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #4361ee, #4cc9f0, #7209b7);
+            border-radius: 20px;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+                    -45deg,
+                    rgba(255, 255, 255, 0.2) 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    rgba(255, 255, 255, 0.2) 50%,
+                    rgba(255, 255, 255, 0.2) 75%,
+                    transparent 75%,
+                    transparent
+            );
+            background-size: 50px 50px;
+            animation: move 2s linear infinite;
+            border-radius: 20px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .loading-title {
+                font-size: 2rem;
+            }
+
+            .loading-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="loading-container">
+    <div class="loading-content">
+        <div class="loading-icon">
+            <i class="fas fa-music"></i>
+        </div>
+
+        <h1 class="loading-title">Generating Your Musical Journey</h1>
+
+        <p class="loading-subtitle">
+            Emulsifying your music
+        </p>
+
+        <div class="progress-container">
+            <div class="progress-bar" role="progressbar"></div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+<script>
+    setTimeout(() => {
+        const params = new URLSearchParams({
+            lat1: [[${lat1}]],
+            lng1: [[${lng1}]],
+            lat2: [[${lat2}]],
+            lng2: [[${lng2}]]
+        });
+        window.location.href = '/results-final?' + params.toString();
+    }, 500); // half a second delay
+</script>
+</body>
+</html>

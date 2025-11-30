@@ -1,0 +1,39 @@
+
+<head th:fragment="header(title, pageText)">
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <title th:text="${title}">Spotify Map</title>
+</head>
+<body>
+<header class="mb-3 p-3 text-bg-dark">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between">
+
+            <a href="/" class="d-flex align-items-center text-white text-decoration-none me-3 topbar-logo">
+                <img src="assets/logotransparentwhite.png" width="100" height="100%" alt="Logo">
+            </a>
+
+            <h3 th:text="${pageText}" class="text-white mx-auto mb-0">Title</h3>
+
+            <ul class="nav">
+                <li class="nav-item">
+                    <a th:href="@{/}" class="nav-link px-3 text-white fw-semibold">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/about}" class="nav-link px-3 text-white fw-semibold">About</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</header>
+
+</body>
+
+
